@@ -1,0 +1,80 @@
+.btn {
+    font-weight: 600;
+    border-radius: 4px;
+    border: none
+}
+
+thead th {
+    font-weight: 900 !important;
+
+}
+
+div.bp3-select:not(.bp3-minimal) select {
+    background-image: none !important;
+}
+
+.bp3-input-group:not([class*="bp3-intent-"]) .bp3-input {
+    border: 1px solid #dddddd;
+    box-shadow: none;
+}
+
+/*.bp3-input-group:not([class*="bp3-intent-"]) .bp3-input:not(:focus) {*/
+/*}*/
+
+.bp3-input-group:not([class*="bp3-intent-"]) .bp3-input:focus {
+    /*box-shadow:  0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);*/
+    box-shadow:  0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 0px 0px rgba(16, 22, 26, 0.2);
+}
+
+.bp3-heading {
+    font-weight: 500;
+    margin: 0;
+}
+
+.mb-xs {margin-bottom: 7px !important;}
+.mb-sm {margin-bottom: 10px !important;}
+.mb-md {margin-bottom: 13px !important;}
+.mt-xs {margin-top: 7px !important;}
+.mt-sm {margin-top: 10px !important;}
+.mt-md {margin-top: 13px !important;}
+
+.heading-thin {
+    font-weight: 400;
+}
+
+.sidebar-home {
+    width: 100%;
+    border-bottom: 1px solid #e6e7ef
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-color: #e9ecf1;
+}
+
+.center-table th, .center-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.center-table-v th, .center-table-v td {
+    vertical-align: middle;
+}
+
+.center-table-h th, .center-table-h td {
+    text-align: center;
+}
+
+.table th, td {                                                                                                                                                                             
+    white-space: nowrap !important;                                                                                                                                                             
+}
+
+.content-body hr {
+    border-color: #c1c1c1;
+}
