@@ -10,9 +10,9 @@ import {
 } from './types';
 
 import { 
-    loadRefreshTokenFromStorage, 
-    clearTokenFromStorage,
-    saveTokenToStorage,
+    loadAuthFromStorage, 
+    clearAuthFromStorage,
+    saveAuthToStorage,
     resetState 
 } from './helpers';
 
@@ -23,7 +23,7 @@ const initialState: AuthState = {
     message: null,
     authStatus: 'unauthenticated',
     user: null,
-    tokens: { access: '', refresh: loadRefreshTokenFromStorage() },
+    tokens: { access: '', refreshID: loadAuthFromStorage() },
 };
 
 export const slice = createSlice({
@@ -33,7 +33,7 @@ export const slice = createSlice({
         loginInit(state, action: PayloadAction<LoginInitPayload>) {
             resetState(state);
             state.authStatus = 'logging';
-            clearTokenFromStorage();
+            clearAuthFromStorage();
         },
         loginSuccess(state, action: PayloadAction<LoginSuccessPayload>) {
             resetState(state);
@@ -41,22 +41,25 @@ export const slice = createSlice({
             state.authStatus = 'logged-in';
 
             state.tokens.access = action.payload.accessToken;
-            state.tokens.refresh = action.payload.refreshToken;
+            state.tokens.refreshID = action.payload.refreshTokenID;
+            state.user = action.payload.userInfo;
 
-            const { userInfo } = action.payload;
-            state.user = userInfo;
-            saveTokenToStorage(action.payload.refreshToken);
+            saveAuthToStorage(state.tokens.refreshID);
         },
         loginFailed(state, action: PayloadAction<LoginFailedPayload>) {
             resetState(state);
             state.authStatus = 'failed';
             state.message = action.payload;
 
-            clearTokenFromStorage();
+            clearAuthFromStorage();
+        },
+        logoutInit(state, action) {
+            state.loggedIn = false;
+            state.authStatus = 'logging-out'
         },
         logout(state) {
             resetState(state);
-            clearTokenFromStorage();
+            clearAuthFromStorage();
             history.replace('/');
         },
         tokenRefreshInit(state, action) {

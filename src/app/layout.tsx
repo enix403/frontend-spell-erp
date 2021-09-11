@@ -31,7 +31,7 @@ const AppHeader = () => {
                     intent={Intent.DANGER}
                     text="Logout"
                     rightIcon="log-out"
-                    onClick={e => dispatch(AuthActions.logout())}
+                    onClick={e => dispatch(AuthActions.logoutInit(null))}
                 />
             </div>
         </div>

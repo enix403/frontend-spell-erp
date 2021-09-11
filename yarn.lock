@@ -1362,7 +1362,7 @@
   resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-1.0.0.tgz#3b3501eae2294098fe5bdf8f37d0c471e95cd0e6"
   integrity sha512-eJh111ucz8HYxLBON6ADkAGQQBACqdbX6Zws/GpuiTkeCFJ3IAjZdBpk7IM7/Y5XuGuSS1ujwjnLDOEtyywtKw==
 
-"@blueprintjs/core@3.48.0":
+"@blueprintjs/core@3.48.0", "@blueprintjs/core@^3.48.0":
   version "3.48.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.48.0.tgz#e2d27c05943203d4979eae95f8a0c10b24d2b6cc"
   integrity sha512-tuAL3dZrNaTq36RRy6O86wjmkiLt8LwHkleZ1zUcn/DC3cXsM3dSsRpV3f662bcEiAXMPeGemSC3tqv6uZCeLg==
@@ -1385,6 +1385,15 @@
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-3.28.0.tgz#d06528df4aadc0ea685b0b3be18fd3b19dece9e5"
   integrity sha512-gDvvU2ljV4NXsY5ofKcs1ChXAgmqNp/DIMu2uJIJmXhSXfP6JDd4qbnbGMsP3FmLTaqQP3E9oBZqAG/FRB8VmQ==
   dependencies:
+    classnames "^2.2"
+    tslib "~1.13.0"
+
+"@blueprintjs/select@3.17.0":
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/select/-/select-3.17.0.tgz#b4e49ed9dd8a2cebbf27226c3e2f25c4071fdb29"
+  integrity sha512-38jvSt1zGOJuw6Vj3BrDn1ojZCI+U5UV8xEupGPTEVyszE7RwFoF8l1iDTLbiPwLV5DSOxTN0B6mxeSPX45OQw==
+  dependencies:
+    "@blueprintjs/core" "^3.48.0"
     classnames "^2.2"
     tslib "~1.13.0"
 

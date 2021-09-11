@@ -1,22 +1,24 @@
 import { AuthState } from './types';
 
-export function loadRefreshTokenFromStorage(): string {
+const STORAGE_AUTH_HANDLE_KEY = 'ref_tk_id';
+
+export function loadAuthFromStorage(): string {
     if (!window.localStorage) {
         return '';
     }
-    return window.localStorage.getItem('ref_token') || '';
+    return window.localStorage.getItem(STORAGE_AUTH_HANDLE_KEY) || '';
 }
 
-export function clearTokenFromStorage() {
+export function clearAuthFromStorage() {
     if (window.localStorage) {
-        window.localStorage.removeItem('ref_token');
+        window.localStorage.removeItem(STORAGE_AUTH_HANDLE_KEY);
     }
 }
 
-export function saveTokenToStorage(token: string) {
+export function saveAuthToStorage(handle: string) {
     if (window.localStorage) {
         try {
-            window.localStorage.setItem('ref_token', token);
+            window.localStorage.setItem(STORAGE_AUTH_HANDLE_KEY, handle);
         }
         catch (err) {}
     }
@@ -27,5 +29,5 @@ export function resetState(state: AuthState) {
     state.message = null;
     state.authStatus = 'unauthenticated';
     state.user = null;
-    state.tokens = { access: '', refresh: '' };
+    state.tokens = { access: '', refreshID: '' };
 }

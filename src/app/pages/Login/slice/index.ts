@@ -4,8 +4,9 @@ import * as selectors from './selectors';
 import { slice } from './main';
 import { loginSaga } from './sagas';
 
-// export const { AuthState } = hetypes;
-export const { actions } = slice;
+export const actions = {
+    ...slice.actions
+};
 export const { selectAuthState, selectUserInfo } = selectors;
 
 export const useLoginSlice = () => {

@@ -1,6 +1,7 @@
 export type AuthLoginStatus =
     | 'unauthenticated'
     | 'logging'
+    | 'logging-out'
     | 'failed'
     | 'logged-in'
     | 'refreshing-access-token';
@@ -24,7 +25,7 @@ export interface AuthState {
     user: UserInfo | null;
     tokens: {
         access: string;
-        refresh: string;
+        refreshID: string;
     };
 }
 
@@ -37,7 +38,7 @@ export type LoginFailedPayload = string; // message
 
 export interface LoginSuccessPayload {
     accessToken: string;
-    refreshToken: string;
+    refreshTokenID: string;
 
     userInfo: UserInfo;
 }

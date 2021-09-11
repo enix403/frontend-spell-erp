@@ -37,6 +37,16 @@ import { LoadingIndicator } from './components/LoadingIndicator';
 
 export function App() {
     useLoginSlice();
+
+    return (
+        <React.Fragment>
+            <Helmet titleTemplate="%s - ERP" defaultTitle="ERP">
+                <meta name="description" content="ERP Application" />
+            </Helmet>
+            <AppRouter />
+        </React.Fragment>
+    );
+
     const authState = useSelector(selectAuthState);
     const dispatch = useDispatch();
 
@@ -46,22 +56,27 @@ export function App() {
 
     let mainComponent: React.ReactNode;
 
-    // WARNING: Some really messed up convoluted nonsense logic
+    // WARNING: Some really messed up convoluted nonsense logic ahead....... but it works :D
 
-    const shouldRefresh = tokens.refresh !== '' && authStatus !== 'refreshing-access-token';
+    if (authStatus == 'logging-out') {
+        mainComponent = <LoadingIndicator />;
+    } else {
+        const shouldRefresh = tokens.refreshID !== '' && authStatus !== 'refreshing-access-token';
 
-    if (!loggedIn) {
-        if (shouldRefresh || authStatus === 'refreshing-access-token') {
-            mainComponent = <LoadingIndicator />;
-            if (shouldRefresh) {
-                dispatch(AuthActions.tokenRefreshInit(null));
+        if (!loggedIn) {
+            if (shouldRefresh || authStatus === 'refreshing-access-token') {
+                mainComponent = <LoadingIndicator />;
+                if (shouldRefresh) {
+                    dispatch(AuthActions.tokenRefreshInit(null));
+                }
+            } else {
+                mainComponent = <LoginPage />;
             }
         } else {
-            mainComponent = <LoginPage />;
+            mainComponent = <AppRouter />;
         }
-    } else {
-        mainComponent = <AppRouter />;
     }
+
 
     return (
         <React.Fragment>

@@ -9,10 +9,10 @@ interface TableProps extends React.PropsWithChildren<{}> {
 export const ResponsiveTable = React.memo((props: TableProps) => {
     let alignClass: string;
 
-    if (props.center == 'vertical') alignClass = 'center-table-v';
-    else if (props.center == 'horizontal') alignClass = 'center-table-h';
-    else if (props.center == 'both') alignClass = 'center-table';
-    else alignClass = '';
+    if (props.center == 'vertical')         alignClass = 'center-table-v';
+    else if (props.center == 'horizontal')  alignClass = 'center-table-h';
+    else if (props.center == 'both')        alignClass = 'center-table';
+    else                                    alignClass = '';
 
     return (
         <div className="table-responsive">

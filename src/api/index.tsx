@@ -5,6 +5,7 @@ const apiBaseUrl = 'http://localhost:9300';
 
 const axiosConfig: AxiosRequestConfig = {
     baseURL: apiBaseUrl,
+    withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
     },
